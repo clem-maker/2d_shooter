@@ -1,7 +1,7 @@
 extends Node
 var target_vec : Vector2
-var blickrichtung: bool #true = right,flase = left
-var instanz_bullet 
+var blickrichtung: bool #true = right,false = left
+
 
 
 
@@ -9,7 +9,8 @@ var instanz_bullet
 
 func destroy_bullet(bullet):
 	if is_instance_valid(bullet):
-		queue_free()
+		#queue_free()
+		pass
 
 
 
