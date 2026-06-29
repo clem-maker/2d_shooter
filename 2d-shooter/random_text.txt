@@ -1,0 +1,34 @@
+extends RigidBody2D
+var velocity : Vector2
+var SPEED : float
+func _ready() -> void:
+	gravity_scale = 0
+
+func _process(delta: float) -> void:
+	if not Global.target_vec == Vector2.ZERO:
+		#linear_velocity = Global.target_vec
+		velocity = Global.target_vec
+		var vector_length:float = sqrt(Global.target_vec.x**2 + Global.target_vec.y **2)
+		#print("vector lenght", vector_length)
+		SPEED = vector_length
+		
+	
+		position += Global.target_vec *SPEED *delta /10
+	delta = delta
+
+	func lade_szene(mouse_position:Vector2):
+	var instanz_target_symbol = load("res://target.tscn").instantiate()
+	var instanz_bullet = load("res://bullet.tscn").instantiate()
+	# Position setzen (2D)
+	instanz_target_symbol.position = mouse_position - Vector2(15,10)
+	child_numb += 1
+	add_child(instanz_target_symbol)
+	await get_tree().create_timer(1).timeout
+	instanz_target_symbol.queue_free()
+	add_child(instanz_bullet)
+	instanz_bullet.global_position = $player/gun_shoot_point.global_position
+	Global.target_vec = mouse_position - $player/gun_shoot_point.global_position
+	instanz_bullet.rotation = Global.target_vec.angle()
+	await get_tree().create_timer(bullet_not_despwaning_time).timeout
+	instanz_bullet.queue_free()
+	

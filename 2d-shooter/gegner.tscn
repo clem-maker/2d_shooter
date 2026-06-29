@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://0ojt0rjvtitd"]
+
+[ext_resource type="Script" uid="uid://bgpx11mds6k72" path="res://gegner.gd" id="1_v5qxm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3vge"]
+radius = 70.0
+height = 199.99998
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t3vge"]
+radius = 0.33
+height = 1.32
+
+[node name="gegner" type="CharacterBody2D" unique_id=759088574]
+scale = Vector2(0.33, 0.33)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_v5qxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=104319480]
+shape = SubResource("CapsuleShape2D_t3vge")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1944468801]
+disable_mode = 1
+collision_layer = 65535
+collision_mask = 65535
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1622967586]
+shape = SubResource("CapsuleShape2D_t3vge")
+debug_color = Color(0.74318856, 0.29270464, 0.8970031, 0.41960785)
+
+[node name="koerper" type="MeshInstance2D" parent="." unique_id=506420565]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0.5000031, -0.49998665)
+scale = Vector2(201, 150.50002)
+mesh = SubResource("CapsuleMesh_t3vge")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1368963714]
+visible = false
+position = Vector2(0.5000031, -0.49998665)
+scale = Vector2(201, 150.50002)
+
+[node name="debug_lab" type="Label" parent="." unique_id=1859191760]
+offset_left = -146.0
+offset_top = -287.0
+offset_right = 150.0
+offset_bottom = -229.0
+theme_override_font_sizes/font_size = 36
+text = "wurde getroffen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

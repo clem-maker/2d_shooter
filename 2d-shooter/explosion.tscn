@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bjh4ennhrtdj8"]
+
+[ext_resource type="Texture2D" uid="uid://1m6i0h3g47mn" path="res://resourcen/pictures/expolsion_animation/explosion-1.png.png" id="1_q7epf"]
+[ext_resource type="Texture2D" uid="uid://c25llndio7ef4" path="res://resourcen/pictures/expolsion_animation/explosion-2.png (1).png" id="2_ew515"]
+[ext_resource type="Texture2D" uid="uid://5k5kgnyxayh4" path="res://resourcen/pictures/expolsion_animation/explosion-3.png.png" id="3_6cxdk"]
+[ext_resource type="Texture2D" uid="uid://satr05efqct0" path="res://resourcen/pictures/expolsion_animation/explosion-4.png.png" id="4_4lvei"]
+[ext_resource type="Texture2D" uid="uid://bk6830i5lf476" path="res://resourcen/pictures/expolsion_animation/explosion-5.png.png" id="5_7rlbx"]
+[ext_resource type="Texture2D" uid="uid://dgipdghsgbti1" path="res://resourcen/pictures/expolsion_animation/explosion-6.png.png" id="6_8qgnu"]
+[ext_resource type="Texture2D" uid="uid://k1f47ihdk8bx" path="res://resourcen/pictures/expolsion_animation/explosion-7.png.png" id="7_x43sf"]
+[ext_resource type="Texture2D" uid="uid://rxf4cgq0h81u" path="res://resourcen/pictures/expolsion_animation/explosion-8.png.png" id="8_paiiv"]
+[ext_resource type="Texture2D" uid="uid://coei7mkeispna" path="res://resourcen/pictures/expolsion_animation/explosion-9.png.png" id="9_8kihm"]
+[ext_resource type="Texture2D" uid="uid://bu5har7w63gup" path="res://resourcen/pictures/expolsion_animation/explosion-10.png.png" id="10_exbut"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vxas0"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_q85pl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_q7epf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CircleShape2D_vxas0")]
+}
+
+[sub_resource type="Animation" id="Animation_j4sxf"]
+resource_name = "exposion"
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5, 0.5833333, 0.6666667, 0.75, 0.8333333, 0.9166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_q7epf"), ExtResource("2_ew515"), ExtResource("3_6cxdk"), ExtResource("4_4lvei"), ExtResource("5_7rlbx"), ExtResource("6_8qgnu"), ExtResource("6_8qgnu"), ExtResource("7_x43sf"), ExtResource("8_paiiv"), ExtResource("9_8kihm"), ExtResource("10_exbut")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CircleShape2D_vxas0")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m5xho"]
+_data = {
+&"RESET": SubResource("Animation_q85pl"),
+&"exposion": SubResource("Animation_j4sxf")
+}
+
+[node name="explosion" type="Node2D" unique_id=991984647]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1305292489]
+texture_filter = 1
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 46.0
+offset_bottom = 46.0
+texture = ExtResource("1_q7epf")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1896958232]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=287999278]
+position = Vector2(-2, -2)
+shape = SubResource("CircleShape2D_vxas0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=502229207]
+libraries/ = SubResource("AnimationLibrary_m5xho")

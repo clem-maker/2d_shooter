@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bvi1csimdej5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jed4e"]
+size = Vector2(12860, 30)
+
+[node name="wand_oben_unten" type="StaticBody2D" unique_id=17260207]
+disable_mode = 2
+collision_layer = 65535
+collision_mask = 65535
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1888407254]
+position = Vector2(6400, -15)
+shape = SubResource("RectangleShape2D_jed4e")

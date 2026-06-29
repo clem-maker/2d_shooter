@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dux0fglknt4sc"]
+
+[ext_resource type="Texture2D" uid="uid://c0hdmqkekxkr6" path="res://resourcen/pictures/bullet_animation/bullet1.png" id="1_2b2rl"]
+[ext_resource type="Script" uid="uid://cmrxk21mbw7kc" path="res://bullet.gd" id="1_b7duk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ol1o"]
+radius = 20.615526
+
+[node name="bullet" type="RigidBody2D" unique_id=972873222]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 0
+gravity_scale = -8.0
+script = ExtResource("1_b7duk")
+min_SPEED = 200
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=946455054]
+position = Vector2(0, -0.5)
+scale = Vector2(0.35, 0.1)
+shape = SubResource("CircleShape2D_6ol1o")
+debug_color = Color(0.7871744, 0.28148347, 0.81762946, 0.41960785)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1571146423]
+texture_filter = 1
+offset_left = -8.0
+offset_top = -3.0
+offset_right = 31.0
+offset_bottom = 9.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_2b2rl")
+expand_mode = 2
+stretch_mode = 1
