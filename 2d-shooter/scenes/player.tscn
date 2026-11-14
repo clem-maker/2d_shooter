@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4al3dwnpd05u"]
 
-[ext_resource type="Script" uid="uid://bfijoq0e5ancj" path="res://scribte/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bfijoq0e5ancj" path="res://scribte/gdscribt/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cf6rkoswyx2cm" path="res://resources/pictures/qualm.png" id="3_i3pqv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sh265"]
@@ -15,12 +15,6 @@
 radius = 2.0
 height = 20.0
 radial_segments = 12
-
-[sub_resource type="GDScript" id="GDScript_onrkg"]
-script/source = "extends Camera2D
-func _ready() -> void:
-	pass
-"
 
 [sub_resource type="Animation" id="Animation_4flbx"]
 length = 0.001
@@ -211,7 +205,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("right_leg_partikel:emitting")
+tracks/16/path = NodePath("leg_particles/right_leg_partikel:emitting")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -223,7 +217,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("left_leg_partikel:emitting")
+tracks/17/path = NodePath("leg_particles/left_leg_partikel:emitting")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -373,7 +367,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("right_leg_partikel:emitting")
+tracks/12/path = NodePath("leg_particles/right_leg_partikel:emitting")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -385,7 +379,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("left_leg_partikel:emitting")
+tracks/13/path = NodePath("leg_particles/left_leg_partikel:emitting")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -507,8 +501,42 @@ _data = {
 [sub_resource type="Gradient" id="Gradient_hqtel"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.5882353)
 
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g2els"]
+gradient = SubResource("Gradient_hqtel")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qhqgy"]
+lifetime_randomness = 0.8
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector3(0, -0.3, 0)
+spread = 180.0
+angular_velocity_max = 32.0
+gravity = Vector3(0, -2, 0)
+linear_accel_max = 5.0
+scale_min = 0.35
+scale_max = 0.6
+color_initial_ramp = SubResource("GradientTexture1D_g2els")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qhqgy"]
+gradient = SubResource("Gradient_hqtel")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dqkch"]
+lifetime_randomness = 0.8
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector3(0, -0.1, 0)
+spread = 180.0
+angular_velocity_max = 32.0
+gravity = Vector3(0, -1, 0)
+linear_accel_max = 5.0
+scale_min = 0.35
+scale_max = 0.6
+color_initial_ramp = SubResource("GradientTexture1D_qhqgy")
+
 [node name="player" type="CharacterBody2D" unique_id=981906619]
-script = ExtResource("1_4flbx")
+script = ExtResource("1_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1162244839]
 scale = Vector2(2, 2)
@@ -549,54 +577,40 @@ rotation = -0.2617994
 scale = Vector2(0.024880318, 0.033333335)
 mesh = SubResource("CapsuleMesh_onrkg")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=582619378]
+[node name="Camera" type="Camera2D" parent="." unique_id=582619378]
+unique_name_in_owner = true
 skew = 1.569051
-script = SubResource("GDScript_onrkg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=295199016]
 libraries/ = SubResource("AnimationLibrary_i3pqv")
 
-[node name="right_leg_partikel" type="CPUParticles2D" parent="." unique_id=1096308982]
+[node name="gun_shoot_point" type="Node2D" parent="." unique_id=1183556534]
+position = Vector2(31, -8)
+
+[node name="leg_particles" type="Node2D" parent="." unique_id=367445993]
+
+[node name="left_leg_partikel" type="GPUParticles2D" parent="leg_particles" unique_id=80107878]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-14.999999, 40.000004)
+scale = Vector2(2.5, 1)
+emitting = false
+amount = 6
+texture = ExtResource("3_i3pqv")
+randomness = 1.0
+fixed_fps = 0
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_qhqgy")
+
+[node name="right_leg_partikel" type="GPUParticles2D" parent="leg_particles" unique_id=404263705]
 show_behind_parent = true
 texture_filter = 1
 position = Vector2(14.999995, 41)
 scale = Vector2(2.5, 1)
 emitting = false
-amount = 4
+amount = 6
 texture = ExtResource("3_i3pqv")
 randomness = 1.0
-lifetime_randomness = 0.8
-emission_shape = 1
-emission_sphere_radius = 4.0
-direction = Vector2(0, -0.1)
-spread = 180.0
-gravity = Vector2(0, -1)
-angular_velocity_max = 32.0
-linear_accel_max = 5.0
-scale_amount_min = 0.35
-scale_amount_max = 0.6
-color_initial_ramp = SubResource("Gradient_hqtel")
-
-[node name="left_leg_partikel" type="CPUParticles2D" parent="." unique_id=1705646326]
-show_behind_parent = true
-texture_filter = 1
-position = Vector2(-14.999999, 40.000004)
-scale = Vector2(2.5, 0.99999994)
-emitting = false
-amount = 4
-texture = ExtResource("3_i3pqv")
-randomness = 1.0
-lifetime_randomness = 0.8
-emission_shape = 1
-emission_sphere_radius = 4.0
-direction = Vector2(0, -0.1)
-spread = 180.0
-gravity = Vector2(0, -1)
-angular_velocity_max = 32.0
-linear_accel_max = 5.0
-scale_amount_min = 0.35
-scale_amount_max = 0.6
-color_initial_ramp = SubResource("Gradient_hqtel")
-
-[node name="gun_shoot_point" type="Node2D" parent="." unique_id=1183556534]
-position = Vector2(31, -8)
+fixed_fps = 0
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_dqkch")

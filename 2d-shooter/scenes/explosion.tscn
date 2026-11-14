@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjh4ennhrtdj8"]
 
-[ext_resource type="Script" uid="uid://drir75855oasf" path="res://scribte/explosion.gd" id="1_l208b"]
+[ext_resource type="Script" uid="uid://cc742ei42kn34" path="res://scribte/gdscribt/explosion.gd" id="1_dvsvq"]
 [ext_resource type="Texture2D" uid="uid://1m6i0h3g47mn" path="res://resources/pictures/explosion_animation/explosion-1.png.png" id="1_q7epf"]
 [ext_resource type="Shader" uid="uid://b25wwmtscwxoj" path="res://scribte/shader/explosion.gdshader" id="2_dvsvq"]
 [ext_resource type="Texture2D" uid="uid://c25llndio7ef4" path="res://resources/pictures/explosion_animation/explosion-2.png (1).png" id="2_ew515"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bu5har7w63gup" path="res://resources/pictures/explosion_animation/explosion-10.png.png" id="10_exbut"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l208b"]
+resource_local_to_scene = true
 shader = ExtResource("2_dvsvq")
 shader_parameter/alpha_value = 1.0
 
@@ -61,7 +62,7 @@ animations = [{
 }]
 
 [node name="explosion" type="Node2D" unique_id=991984647]
-script = ExtResource("1_l208b")
+script = ExtResource("1_dvsvq")
 
 [node name="explosion_sprites" type="AnimatedSprite2D" parent="." unique_id=467606430]
 texture_filter = 1

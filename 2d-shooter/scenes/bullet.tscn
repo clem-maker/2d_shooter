@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dux0fglknt4sc"]
 
 [ext_resource type="Texture2D" uid="uid://c0hdmqkekxkr6" path="res://resources/pictures/bullet_animation/bullet1.png" id="1_2b2rl"]
-[ext_resource type="Script" uid="uid://cmrxk21mbw7kc" path="res://scribte/bullet.gd" id="1_b7duk"]
+[ext_resource type="Script" uid="uid://t2atqddi2hlv" path="res://scribte/gdscribt/bullet.gd" id="1_eoqba"]
 [ext_resource type="PackedScene" uid="uid://bjh4ennhrtdj8" path="res://scenes/explosion.tscn" id="3_l5glv"]
+[ext_resource type="Script" uid="uid://cc742ei42kn34" path="res://scribte/gdscribt/explosion.gd" id="4_eoqba"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbgi4"]
 radius = 2.0
@@ -15,7 +16,7 @@ collision_mask = 0
 mass = 0.001
 gravity_scale = 0.0
 can_sleep = false
-script = ExtResource("1_b7duk")
+script = ExtResource("1_eoqba")
 
 [node name="explosion_timer" type="Timer" parent="." unique_id=1853581617]
 wait_time = 3.0
@@ -40,6 +41,7 @@ stretch_mode = 1
 
 [node name="explosion" parent="." unique_id=991984647 instance=ExtResource("3_l5glv")]
 visible = false
+script = ExtResource("4_eoqba")
 
 [connection signal="body_shape_entered" from="." to="." method="collision_detected"]
 [connection signal="explosion" from="." to="." method="_on_explosion"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b0kxprreiuwlf"]
 
-[ext_resource type="Script" uid="uid://cqxnlay28s34w" path="res://scribte/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b4al3dwnpd05u" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cqxnlay28s34w" path="res://scribte/gdscribt/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://0ojt0rjvtitd" path="res://scenes/enemy.tscn" id="3_h2yge"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tpb3x"]
@@ -16,7 +16,7 @@ normal = Vector2(0, 1)
 normal = Vector2(-1, 0)
 
 [node name="main" type="Node2D" unique_id=1096928505]
-script = ExtResource("1_0xm2m")
+script = ExtResource("1_jyhfs")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=439115359]
 offset_right = 12800.0
@@ -25,22 +25,6 @@ color = Color(0.56915283, 0.6870658, 1, 1)
 
 [node name="player" parent="." unique_id=981906619 instance=ExtResource("1_ig7tw")]
 position = Vector2(110, 115)
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="player" unique_id=1881969085]
-visible = false
-emitting = false
-amount = 2048
-lifetime = 4.0
-emission_shape = 1
-emission_sphere_radius = 32.8
-direction = Vector2(1, -1)
-spread = 30.0
-initial_velocity_min = 400.0
-initial_velocity_max = 400.0
-angle_max = 360.0
-scale_amount_min = 2.0
-scale_amount_max = 3.0
-color = Color(1, 0, 0, 1)
 
 [node name="enemy" parent="." unique_id=759088574 instance=ExtResource("3_h2yge")]
 position = Vector2(443.99997, 325.99997)

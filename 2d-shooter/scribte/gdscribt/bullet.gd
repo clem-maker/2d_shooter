@@ -2,7 +2,7 @@ extends RigidBody2D
 
 signal explosion
 
-const BULLET_MAX_TIME : int = 1
+const BULLET_MAX_TIME : float = 1
 
 var visited : int = 0
 var target_vec : Vector2
