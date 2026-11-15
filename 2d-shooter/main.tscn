@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b0kxprreiuwlf"]
+
+[ext_resource type="Script" uid="uid://cqxnlay28s34w" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b4al3dwnpd05u" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://0ojt0rjvtitd" path="res://gegner.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b7g2m6uv5ur8p" path="res://wand_rechts_links.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bvi1csimdej5b" path="res://wand_oben_unten.tscn" id="5_lquwl"]
+
+[node name="main" type="Node2D" unique_id=1096928505]
+script = ExtResource("1_0xm2m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=439115359]
+offset_right = 12800.0
+offset_bottom = 7200.0
+color = Color(0.56915283, 0.6870658, 1, 1)
+
+[node name="player" parent="." unique_id=981906619 instance=ExtResource("1_ig7tw")]
+position = Vector2(110, 115)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="player" unique_id=1881969085]
+visible = false
+emitting = false
+amount = 2048
+lifetime = 4.0
+emission_shape = 1
+emission_sphere_radius = 32.8
+direction = Vector2(1, -1)
+spread = 30.0
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+angle_max = 360.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(1, 0, 0, 1)
+
+[node name="gegner" parent="." unique_id=759088574 instance=ExtResource("3_h2yge")]
+position = Vector2(443.99997, 325.99997)
+disable_mode = 2
+collision_layer = 1
+slide_on_ceiling = false
+
+[node name="world_barriers" type="Node2D" parent="." unique_id=232374944]
+
+[node name="wand_rechts_links2" parent="world_barriers" unique_id=1180056640 instance=ExtResource("4_1bvp3")]
+position = Vector2(12830, 0)
+
+[node name="wand_rechts_links" parent="world_barriers" unique_id=1987979529 instance=ExtResource("4_1bvp3")]
+
+[node name="wand_oben_unten" parent="world_barriers" unique_id=17260207 instance=ExtResource("5_lquwl")]
+
+[node name="wand_oben_unten2" parent="world_barriers" unique_id=869716640 instance=ExtResource("5_lquwl")]
+position = Vector2(0, 7230)
