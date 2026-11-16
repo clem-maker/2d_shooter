@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b0kxprreiuwlf"]
 
-[ext_resource type="Script" uid="uid://cqxnlay28s34w" path="res://main.gd" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://b4al3dwnpd05u" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://0ojt0rjvtitd" path="res://gegner.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://b7g2m6uv5ur8p" path="res://wand_rechts_links.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://bvi1csimdej5b" path="res://wand_oben_unten.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://cqxnlay28s34w" path="res://globals/main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b4al3dwnpd05u" path="res://player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://0ojt0rjvtitd" path="res://gegner/gegner.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b7g2m6uv5ur8p" path="res://walls/wand_rechts_links.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bvi1csimdej5b" path="res://walls/wand_oben_unten.tscn" id="5_lquwl"]
 
 [node name="main" type="Node2D" unique_id=1096928505]
 script = ExtResource("1_0xm2m")

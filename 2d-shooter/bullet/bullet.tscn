@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://dux0fglknt4sc"]
 
 [ext_resource type="Texture2D" uid="uid://c0hdmqkekxkr6" path="res://resourcen/pictures/bullet_animation/bullet1.png" id="1_2b2rl"]
-[ext_resource type="Script" uid="uid://cmrxk21mbw7kc" path="res://bullet.gd" id="1_b7duk"]
+[ext_resource type="Script" uid="uid://cmrxk21mbw7kc" path="res://bullet/bullet.gd" id="1_b7duk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tpb3x"]
 radius = 22.0
 
 [node name="bullet" type="RigidBody2D" unique_id=972873222]
 disable_mode = 2
-collision_layer = 2
-collision_mask = 0
+collision_layer = 8
 gravity_scale = -8.0
 script = ExtResource("1_b7duk")
 

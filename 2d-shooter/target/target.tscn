@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://cneobvoiesig2"]
 
 [ext_resource type="Texture2D" uid="uid://co1apscdxny5d" path="res://resourcen/pictures/target.png" id="1_t2jmu"]
-[ext_resource type="Script" uid="uid://chsa7cl1kjijm" path="res://target.gd" id="2_e1yvt"]
+[ext_resource type="Script" uid="uid://chsa7cl1kjijm" path="res://target/target.gd" id="2_e1yvt"]
 
 [node name="target" type="TextureRect" unique_id=338558643]
 modulate = Color(1, 0.06666666, 0, 0.5254902)
 texture_filter = 1
-anchors_preset = -1
 anchor_left = -0.012
 anchor_top = -0.021000002
 anchor_right = 0.012

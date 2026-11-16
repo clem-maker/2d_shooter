@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://0ojt0rjvtitd"]
 
-[ext_resource type="Script" uid="uid://bgpx11mds6k72" path="res://gegner.gd" id="1_v5qxm"]
+[ext_resource type="Script" uid="uid://bgpx11mds6k72" path="res://gegner/gegner.gd" id="1_v5qxm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3vge"]
 radius = 70.0
@@ -16,13 +16,12 @@ height = 1.32
 
 [node name="gegner" type="CharacterBody2D" unique_id=759088574]
 scale = Vector2(0.33, 0.33)
-collision_layer = 0
-collision_mask = 65535
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_v5qxm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=104319480]
 shape = SubResource("CapsuleShape2D_t3vge")
-disabled = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1944468801]
 disable_mode = 1

@@ -23,5 +23,3 @@ func _physics_process(_delta: float) -> void:
 	direction = get_direction()
 	velocity = get_gegner_movment()
 	move_and_slide()
-		
-	
