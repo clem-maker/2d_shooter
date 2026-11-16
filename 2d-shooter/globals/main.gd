@@ -42,12 +42,9 @@ func lade_szene(mouse_position:Vector2):
 		instanz_bullet.rotation = Global.target_vec.angle()
 		
 	#explosion:
-	instanz_explosion.position = instanz_target_symbol.position-Vector2(-15,-15)
+	#instanz_explosion.position = instanz_target_symbol.position-Vector2(-15,-15)
 	await get_tree().create_timer(.5).timeout
 	add_child(instanz_explosion)
-	if is_instance_valid(instanz_explosion):
-		randomnis_explosion_combined()
-		play_explosion_animation_and_delete()
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("shot"):
 		lade_szene(get_global_mouse_position())

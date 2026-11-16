@@ -20,6 +20,7 @@ config/icon="uid://co1apscdxny5d"
 [autoload]
 
 Global="*uid://b1xu0vrgydbjk"
+SignalBus="*uid://b07issifrohti"
 
 [display]
 

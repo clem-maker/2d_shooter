@@ -8,6 +8,9 @@ var max_despawn_time : float = .5
 const SPEED : int = 2 # time to despawn
 var time : float
 
+
+
+
 func vec_length(dir:Vector2) ->float:
 	return sqrt((dir.x**2)  +  (dir.y**2))
 func _ready() ->void:
@@ -19,6 +22,7 @@ func _ready() ->void:
 	#despanwning bullet if Fehler:
 	await get_tree().create_timer(max_despawn_time).timeout
 	if is_instance_valid(self):
+		SignalBus.bullet_last_position.emit(position)
 		queue_free()
 	
 	

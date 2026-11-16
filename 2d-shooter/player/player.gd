@@ -9,10 +9,7 @@ var is_jumping : bool = false
 const BESCHLEUNIGUNG : int = 200
 var zoom_goal : Vector2 = Vector2(1, 1)
 var facing_right : bool
-func _ready() -> void:
-	$Camera2D.top_level = true
- 
-		
+
 func _process(delta: float) -> void:
 	# Sprung starten
 	if Input.is_action_just_pressed("jump"):
@@ -87,8 +84,6 @@ func _process(delta: float) -> void:
 	$Camera2D.global_position = lerp($Camera2D.global_position, global_position,clamp(0.09 * $Camera2D.zoom.x,0,1))
 	
 	Global.player_position = position
-	
-	
 func _physics_process(delta: float) -> void:
 	velocity = direction * SPEED * delta  # delta hier nötig!
 	if not test_move(global_transform,velocity):
@@ -105,4 +100,3 @@ func _physics_process(delta: float) -> void:
 		#print(scale.x)
 		scale.x = -abs(scale.x)
 		#print(scale.x)
-	
